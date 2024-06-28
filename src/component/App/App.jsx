@@ -12,27 +12,24 @@ const initialContacts = [
 ];
 
 const App = () => {
-  const [contacts, setContacts] = useState(initialContacts);
-  const [searchText, setSearchText] = useState('');
-
-  useEffect(() => {
+  const [contacts, setContacts] = useState(() => {
+    // Завантаження контактів з localStorage лише при першому рендері
     const storedContacts = localStorage.getItem('contacts');
     if (storedContacts) {
-      setContacts(JSON.parse(storedContacts));
+      return JSON.parse(storedContacts);
     }
-  }, []);
+    return initialContacts; // Повернення початкових контактів за замовчуванням
+  });
+  const [searchText, setSearchText] = useState('');
 
-useEffect(() => {
-  if (contacts.length !== initialContacts.length) {
+  // Збереження контактів у localStorage при будь-якій зміні стану `contacts`
+  useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
-  }
-}, [contacts]);
-  
- 
-const addContact = (newContact) => {
-  setContacts([newContact, ...contacts]);
-  localStorage.setItem('contacts', JSON.stringify([newContact, ...contacts]));
-};
+  }, [contacts]);
+
+  const addContact = (newContact) => {
+    setContacts([newContact, ...contacts]);
+  };
 
   const deleteContact = (id) => {
     setContacts(contacts.filter((contact) => contact.id !== id));
@@ -47,11 +44,7 @@ const addContact = (newContact) => {
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm onSubmit={addContact} />
       <SearchBox filterText={searchText} setFilterText={handleSearch} />
-      <ContactList
-        contacts={contacts}
-        filterText={searchText}
-        onDeleteContact={deleteContact}
-      />
+      <ContactList contacts={contacts} filterText={searchText} onDeleteContact={deleteContact} />
     </div>
   );
 };

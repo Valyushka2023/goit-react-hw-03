@@ -5,7 +5,6 @@ import css from './ContactForm.module.css';
 
 const phoneNumberFormat = /^\d{3}-\d{2}-\d{2}$/;
 
-
 const contactSchema = yup.object({
   name: yup
     .string()
