@@ -1,0 +1,11 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+}

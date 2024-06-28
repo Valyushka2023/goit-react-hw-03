@@ -1,0 +1,32 @@
+.form {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 64px;
+  margin-bottom: 0;
+}
+
+.input {
+  height: 30px;
+  padding-left: 4px;
+}
+
+.button {
+  margin: auto;
+  height: 30px;
+}
+
+.errorText {
+  color: red; 
+  font-size: 0.8rem; 
+  margin-top: 5px; 
+}

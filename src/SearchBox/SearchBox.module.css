@@ -1,0 +1,22 @@
+.searchBox {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid green;
+  border-radius: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.textSearch {
+  margin-top: 0;  
+  margin-bottom: 4px;
+  width: 280px;
+}
+
+.input {
+  height: 30px;
+  width: 280px;
+}
+
